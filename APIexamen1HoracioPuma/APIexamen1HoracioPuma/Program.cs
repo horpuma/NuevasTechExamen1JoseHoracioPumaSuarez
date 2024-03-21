@@ -1,3 +1,5 @@
+using APIexamen1HoracioPuma.Contratos.Repositorios;
+using APIexamen1HoracioPuma.Implementacion.Repositorios;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,7 @@ var host = new HostBuilder()
     {
         services.AddApplicationInsightsTelemetryWorkerService();
         services.ConfigureFunctionsApplicationInsights();
+        services.AddScoped<IProveedorRepositorio, ProveedorRepositorio>();
     })
     .Build();
 
